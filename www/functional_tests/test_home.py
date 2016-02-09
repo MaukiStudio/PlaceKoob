@@ -14,7 +14,7 @@ class TestHome(LiveServerTestCase):
     def setUpClass(cls):
         super(TestHome, cls).setUpClass()
         cls.browser = WebDriver()
-        cls.browser.implicitly_wait(5)
+        cls.browser.implicitly_wait(1)
         
     @classmethod
     def tearDownClass(cls):
@@ -29,4 +29,10 @@ class TestHome(LiveServerTestCase):
         self.assertIn('PlaceKoob', self.browser.title)
         
         # 회원가입 링크를 발견하고 클릭하면 회원가입폼으로 연결됨을 확인한다
-        self.assertTrue(False, 'ing...')
+        self.browser.find_element_by_link_text('회원가입').click()
+        self.assertEqual(self.browser.current_url, '/accounts/register/')
+        
+        # 다시 홈페이지로 되돌아가서, 로그인 링크를 발견하고 클릭하면 로그인 폼으로 연결됨을 확인한다.
+        self.browser.get(self.live_server_url)
+        self.browser.find_element_by_link_text('회원가입').click()
+        self.assertEqual(self.browser.current_url, '/accounts/login/')
