@@ -1,3 +1,7 @@
+#-*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from __future__ import print_function
+
 """www URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
