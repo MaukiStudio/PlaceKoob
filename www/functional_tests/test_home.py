@@ -8,20 +8,20 @@ from django.test import LiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 
-class TestHome(LiveServerTestCase):
+class HomeTest(LiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestHome, cls).setUpClass()
+        super(HomeTest, cls).setUpClass()
         cls.browser = WebDriver()
         cls.browser.implicitly_wait(1)
         
     @classmethod
     def tearDownClass(cls):
-        super(TestHome, cls).tearDownClass()
+        super(HomeTest, cls).tearDownClass()
         cls.browser.quit()
 
-    def test_can_connect_home(self):
+    def test_can_connect_home_and_check_links(self):
         # 홈페이지에 접속을 한다.
         self.browser.get(self.live_server_url)
 

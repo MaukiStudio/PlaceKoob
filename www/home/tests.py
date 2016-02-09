@@ -5,14 +5,14 @@ from __future__ import print_function
 from django.test import TestCase
 
 
-class TestHomePageConnect(TestCase):
+class HomeConnectTest(TestCase):
 
     def setUp(self):
-        super(TestHomePageConnect, self).setUp()
+        super(HomeConnectTest, self).setUp()
         self.response = self.client.get('/')
 
     def tearDown(self):
-        super(TestHomePageConnect, self).tearDown()
+        super(HomeConnectTest, self).tearDown()
         
     def test_status_200(self):
         self.assertEqual(self.response.status_code, 200)
