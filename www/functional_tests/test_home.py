@@ -12,14 +12,14 @@ class TestHome(LiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
+        super(TestHome, cls).setUpClass()
         cls.browser = WebDriver()
         cls.browser.implicitly_wait(5)
-        super(TestHome, cls).setUpClass()
         
     @classmethod
     def tearDownClass(cls):
-        cls.browser.quit()
         super(TestHome, cls).tearDownClass()
+        cls.browser.quit()
 
     def test_can_connect_home(self):
         # 홈페이지에 접속을 한다.
