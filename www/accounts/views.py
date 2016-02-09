@@ -5,5 +5,5 @@ from __future__ import print_function
 from django.shortcuts import render
 
 
-def register(request):
-    return render(request, 'register.html')
+def accounts(request):
+    return render(request, 'accounts.html')

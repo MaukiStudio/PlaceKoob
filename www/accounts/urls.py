@@ -9,5 +9,5 @@ from accounts import views
 
 
 urlpatterns = [
-    url(r'^register/$', views.register, name='register'),
+    url(r'^$', views.accounts, name='accounts'),
 ]

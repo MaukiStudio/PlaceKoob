@@ -6,17 +6,17 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 
 
-class RegisterConnectTest(TestCase):
+class AccountsConnectTest(TestCase):
 
     def setUp(self):
-        super(RegisterConnectTest, self).setUp()
-        self.response = self.client.get(reverse('register'))
+        super(AccountsConnectTest, self).setUp()
+        self.response = self.client.get(reverse('accounts'))
 
     def tearDown(self):
-        super(RegisterConnectTest, self).tearDown()
+        super(AccountsConnectTest, self).tearDown()
         
     def test_status_200(self):
         self.assertEqual(self.response.status_code, 200)
         
     def test_uses_template(self):
-        self.assertTemplateUsed(self.response, 'register.html')
+        self.assertTemplateUsed(self.response, 'accounts.html')
