@@ -6,6 +6,7 @@ from time import sleep
 
 from django.test import LiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
+from django.core.urlresolvers import reverse
 
 
 class HomeTest(LiveServerTestCase):
@@ -30,9 +31,9 @@ class HomeTest(LiveServerTestCase):
         
         # 회원가입 링크를 발견하고 클릭하면 회원가입폼으로 연결됨을 확인한다
         self.browser.find_element_by_link_text('회원가입').click()
-        self.assertEqual(self.browser.current_url, '/accounts/register/')
+        self.assertTrue(self.browser.current_url.endswith(reverse('register')))
         
         # 다시 홈페이지로 되돌아가서, 로그인 링크를 발견하고 클릭하면 로그인 폼으로 연결됨을 확인한다.
         self.browser.get(self.live_server_url)
-        self.browser.find_element_by_link_text('회원가입').click()
-        self.assertEqual(self.browser.current_url, '/accounts/login/')
+        self.browser.find_element_by_link_text('로그인').click()
+        self.assertTrue(self.browser.current_url.endswith(reverse('login')))

@@ -5,9 +5,9 @@ from __future__ import print_function
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from accounts.views import register
+from accounts import views
 
 
 urlpatterns = [
-    url(r'^register/', register),
+    url(r'^register/$', views.register, name='register'),
 ]
