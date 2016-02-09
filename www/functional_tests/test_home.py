@@ -37,3 +37,7 @@ class HomeTest(LiveServerTestCase):
         self.browser.get(self.live_server_url)
         self.browser.find_element_by_link_text('유저장소등록').click()
         self.assertTrue(self.browser.current_url.endswith(reverse('searchers')))
+        
+        # 다시 홈페이지로 되돌아가서 유저장소조회 링크를 발견하고, 유저장소조회 홈으로 연결됨을 확인한다.
+        self.fail('ing...')
+        
